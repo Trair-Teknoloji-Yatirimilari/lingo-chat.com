@@ -28,13 +28,14 @@
         
         /* Header */
         header {
-            background: linear-gradient(135deg, #FF5722 0%, #FF7043 100%);
-            color: white;
+            background: white;
+            color: #333;
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #f0f0f0;
         }
         
         nav {
@@ -44,11 +45,24 @@
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            color: #FF5722;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF5722;
+            letter-spacing: -0.5px;
         }
         
         .nav-links {
@@ -58,50 +72,176 @@
         }
         
         .nav-links a {
-            color: white;
+            color: #333;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            opacity: 0.8;
+            color: #FF5722;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #FF5722 0%, #FF7043 100%);
-            color: white;
-            padding: 100px 0;
+            background: white;
+            color: #333;
+            padding: 40px 0 60px;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 56px;
-            margin-bottom: 20px;
+            font-size: 44px;
+            margin-bottom: 14px;
             animation: fadeInUp 0.8s;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
         .hero p {
-            font-size: 24px;
-            margin-bottom: 40px;
-            opacity: 0.95;
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: #666;
             animation: fadeInUp 0.8s 0.2s backwards;
+            font-weight: 400;
+            line-height: 1.5;
         }
         
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s 0.3s backwards;
+        }
+        
+        .hero-slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
             animation: fadeInUp 0.8s 0.4s backwards;
         }
         
-        .btn {
-            padding: 15px 40px;
-            font-size: 18px;
+        .hero-slider-wrapper {
+            overflow: hidden;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .hero-slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .hero-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .hero-slide-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 800px;
+        }
+        
+        .hero-slide-image {
+            flex: 0 0 260px;
+        }
+        
+        .hero-slide-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        
+        .hero-slide-text {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .hero-slide-text h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .hero-slide-text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
             border: none;
-            border-radius: 30px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+            transition: all 0.3s;
+            z-index: 10;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .slider-nav:hover {
+            background: #FF5722;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .slider-nav.prev {
+            left: 0;
+        }
+        
+        .slider-nav.next {
+            right: 0;
+        }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 20px;
+        }
+        
+        .slider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: #FF5722;
+            width: 20px;
+            border-radius: 3px;
+        }
+        
+        .btn {
+            padding: 12px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 24px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
@@ -128,14 +268,15 @@
         /* Features Section */
         .features {
             padding: 80px 0;
-            background: #f9f9f9;
+            background: #fafafa;
         }
         
         .section-title {
             text-align: center;
             font-size: 42px;
             margin-bottom: 60px;
-            color: #FF5722;
+            color: #1a1a1a;
+            font-weight: 700;
         }
         
         .features-grid {
@@ -147,13 +288,15 @@
         .feature-card {
             background: white;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            border-radius: 16px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(255,87,34,0.15);
         }
         
         .feature-icon {
@@ -196,20 +339,22 @@
         /* Download Section */
         .download {
             padding: 80px 0;
-            background: linear-gradient(135deg, #FF5722 0%, #FF7043 100%);
-            color: white;
+            background: white;
+            color: #333;
             text-align: center;
+            border-top: 1px solid #f0f0f0;
         }
         
         .download h2 {
             font-size: 42px;
             margin-bottom: 20px;
+            color: #1a1a1a;
         }
         
         .download p {
             font-size: 20px;
             margin-bottom: 40px;
-            opacity: 0.95;
+            color: #666;
         }
         
         .store-buttons {
@@ -220,31 +365,26 @@
         }
         
         .store-btn {
-            background: white;
-            color: #333;
-            padding: 15px 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 16px;
-            transition: transform 0.3s;
+            display: inline-block;
+            transition: transform 0.3s, opacity 0.3s;
         }
         
         .store-btn:hover {
             transform: scale(1.05);
+            opacity: 0.9;
         }
         
-        .store-icon {
-            font-size: 32px;
+        .store-btn img {
+            height: 50px;
+            width: auto;
         }
         
         /* Footer */
         footer {
-            background: #333;
-            color: white;
+            background: white;
+            color: #333;
             padding: 60px 0 20px;
+            border-top: 1px solid #e0e0e0;
         }
         
         .footer-content {
@@ -256,7 +396,8 @@
         
         .footer-section h3 {
             margin-bottom: 20px;
-            color: #FF5722;
+            color: #1a1a1a;
+            font-weight: 700;
         }
         
         .footer-section ul {
@@ -268,7 +409,7 @@
         }
         
         .footer-section a {
-            color: #ccc;
+            color: #666;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -277,10 +418,15 @@
             color: #FF5722;
         }
         
+        .footer-section p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #555;
+            border-top: 1px solid #e0e0e0;
             color: #999;
         }
         
@@ -313,6 +459,35 @@
             .nav-links {
                 display: none;
             }
+            
+            .hero-slide-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-slide-image {
+                flex: 0 0 auto;
+            }
+            
+            .hero-slide-text {
+                text-align: center;
+            }
+            
+            .hero-slide-text h3 {
+                font-size: 20px;
+            }
+            
+            .hero-slide-text p {
+                font-size: 14px;
+            }
+            
+            .hero-slider-container {
+                padding: 0 35px;
+            }
+            
+            .hero-slide {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -321,11 +496,11 @@
     <header>
         <nav class="container">
             <div class="logo">
-                🌍 LingoChat
+                <img src="images/logo.png" alt="LingoChat Logo" onerror="this.style.display='none';">
+                <span class="logo-text">LingoChat</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#languages">Languages</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="terms.html">Terms</a></li>
@@ -333,7 +508,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Professional Slider -->
     <section class="hero">
         <div class="container">
             <h1>Break Language Barriers Instantly</h1>
@@ -341,6 +516,103 @@
             <div class="cta-buttons">
                 <a href="#download" class="btn btn-primary">Download Now</a>
                 <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+            
+            <!-- Professional Hero Slider -->
+            <div class="hero-slider-container">
+                <button class="slider-nav prev" onclick="moveHeroSlide(-1)">‹</button>
+                <button class="slider-nav next" onclick="moveHeroSlide(1)">›</button>
+                
+                <div class="hero-slider-wrapper">
+                    <div class="hero-slider-track" id="heroSliderTrack">
+                        <!-- Slide 1 -->
+                        <div class="hero-slide">
+                            <div class="hero-slide-content">
+                                <div class="hero-slide-image">
+                                    <img src="images/screenshot-1.png" alt="Real-time Translation">
+                                </div>
+                                <div class="hero-slide-text">
+                                    <h3>Real-time Translation</h3>
+                                    <p>Messages are automatically translated as you chat. Just type naturally in your language and your friend sees it in theirs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="hero-slide">
+                            <div class="hero-slide-content">
+                                <div class="hero-slide-image">
+                                    <img src="images/screenshot-2.png" alt="Group Conversations">
+                                </div>
+                                <div class="hero-slide-text">
+                                    <h3>Multilingual Groups</h3>
+                                    <p>Create group chats where everyone sees messages in their preferred language. Perfect for international teams.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="hero-slide">
+                            <div class="hero-slide-content">
+                                <div class="hero-slide-image">
+                                    <img src="images/screenshot-3.png" alt="AI Summaries">
+                                </div>
+                                <div class="hero-slide-text">
+                                    <h3>AI Meeting Summaries</h3>
+                                    <p>Get instant summaries of your group conversations with key points and action items automatically extracted.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4 -->
+                        <div class="hero-slide">
+                            <div class="hero-slide-content">
+                                <div class="hero-slide-image">
+                                    <img src="images/screenshot-4.png" alt="Privacy First">
+                                </div>
+                                <div class="hero-slide-text">
+                                    <h3>Privacy First</h3>
+                                    <p>Messages auto-delete after 24 hours. We never sell your data. GDPR & KVKK compliant.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 5 -->
+                        <div class="hero-slide">
+                            <div class="hero-slide-content">
+                                <div class="hero-slide-image">
+                                    <img src="images/screenshot-5.png" alt="Rich Media">
+                                </div>
+                                <div class="hero-slide-text">
+                                    <h3>Rich Media Sharing</h3>
+                                    <p>Share photos, videos, documents, location, and contacts seamlessly with your conversations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 6 -->
+                        <div class="hero-slide">
+                            <div class="hero-slide-content">
+                                <div class="hero-slide-image">
+                                    <img src="images/screenshot-6.png" alt="Smart Features">
+                                </div>
+                                <div class="hero-slide-text">
+                                    <h3>Smart Features</h3>
+                                    <p>Read receipts, typing indicators, user blocking, push notifications, and profile customization.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-dots">
+                    <button class="slider-dot active" onclick="goToHeroSlide(0)"></button>
+                    <button class="slider-dot" onclick="goToHeroSlide(1)"></button>
+                    <button class="slider-dot" onclick="goToHeroSlide(2)"></button>
+                    <button class="slider-dot" onclick="goToHeroSlide(3)"></button>
+                    <button class="slider-dot" onclick="goToHeroSlide(4)"></button>
+                    <button class="slider-dot" onclick="goToHeroSlide(5)"></button>
+                </div>
             </div>
         </div>
     </section>
@@ -426,18 +698,10 @@
             <p>Download LingoChat now and start breaking language barriers</p>
             <div class="store-buttons">
                 <a href="#" class="store-btn">
-                    <span class="store-icon">🍎</span>
-                    <div>
-                        <div style="font-size: 12px; opacity: 0.7;">Download on the</div>
-                        <div style="font-weight: bold;">App Store</div>
-                    </div>
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1705276800" alt="Download on the App Store">
                 </a>
                 <a href="#" class="store-btn">
-                    <span class="store-icon">🤖</span>
-                    <div>
-                        <div style="font-size: 12px; opacity: 0.7;">Get it on</div>
-                        <div style="font-weight: bold;">Google Play</div>
-                    </div>
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
                 </a>
             </div>
         </div>
@@ -486,5 +750,37 @@
             </div>
         </div>
     </footer>
+    <script>
+        let currentHeroSlide = 0;
+        const totalHeroSlides = 6;
+        
+        function moveHeroSlide(direction) {
+            currentHeroSlide += direction;
+            if (currentHeroSlide < 0) currentHeroSlide = totalHeroSlides - 1;
+            if (currentHeroSlide >= totalHeroSlides) currentHeroSlide = 0;
+            updateHeroSlider();
+        }
+        
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            updateHeroSlider();
+        }
+        
+        function updateHeroSlider() {
+            const track = document.getElementById('heroSliderTrack');
+            const dots = document.querySelectorAll('.hero-slider-container .slider-dot');
+            
+            track.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentHeroSlide);
+            });
+        }
+        
+        // Auto-play hero slider
+        setInterval(() => {
+            moveHeroSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
